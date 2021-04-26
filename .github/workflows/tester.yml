@@ -5,6 +5,7 @@ on:
       milestoneName:
         description: 'Name of milestone'
         required: true
+  repository_dispatch:
 
 jobs:
   milestone-closer:
@@ -16,9 +17,10 @@ jobs:
     steps:
           
       - name: Close milestone
+        if: github.event.action == 'ping'
         uses: Beakyn/gha-close-milestone@v1.1.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          repository: narunachalam/${{ matrix.repoList}}
-          milestone-title: ${{ github.event.inputs.milestoneName}}        
+          repository: narunachalam/${{ github.event.client_payload.repository }}
+          milestone-title: ${{ github.event.client_payload.milestoneName }}  
