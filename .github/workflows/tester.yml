@@ -1,0 +1,24 @@
+name: "Close finished milestones"
+on:
+  workflow_dispatch:
+    inputs:        
+      milestoneName:
+        description: 'Name of milestone'
+        required: true
+
+jobs:
+  milestone-closer:
+
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        repoList: [ 'eoeaaaservicegui', 'Helloworld']      
+    steps:
+          
+      - name: Close milestone
+        uses: Beakyn/gha-close-milestone@v1.1.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          repository: narunachalam/${{ matrix.repoList}}
+          milestone-title: ${{ github.event.inputs.milestoneName}}        
