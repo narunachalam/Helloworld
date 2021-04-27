@@ -1,11 +1,7 @@
 name: "Close finished milestones"
-on:
-  workflow_dispatch:
-    inputs:        
-      milestoneName:
-        description: 'Name of milestone'
-        required: true
+on: 
   repository_dispatch:
+    types: [Helloworld]    
 
 jobs:
   milestone-closer:
