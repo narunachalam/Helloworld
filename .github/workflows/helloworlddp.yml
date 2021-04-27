@@ -13,7 +13,7 @@ jobs:
       - name: Close milestone
         uses: Beakyn/gha-close-milestone@v1.1.1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
         with:
           repository: narunachalam/Helloworld
           milestone-title: ${{ github.event.client_payload.milestoneName }}  
