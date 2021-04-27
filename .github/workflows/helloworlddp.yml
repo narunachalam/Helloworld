@@ -1,19 +1,1 @@
-name: "Close finished hellowrold milestones"
-on: 
-  repository_dispatch:
-    types: [Helloworld]    
 
-jobs:
-  milestone-closer:
-
-    runs-on: ubuntu-latest
-  
-    steps:
-          
-      - name: Close milestone
-        uses: Beakyn/gha-close-milestone@v1.1.1
-        env:
-          GITHUB_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
-        with:
-          repository: narunachalam/Helloworld
-          milestone-title: ${{ github.event.client_payload.milestoneName }}  
