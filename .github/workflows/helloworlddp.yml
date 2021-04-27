@@ -1,4 +1,4 @@
-name: "Close finished milestones"
+name: "Close finished hellowrold milestones"
 on: 
   repository_dispatch:
     types: [Helloworld]    
