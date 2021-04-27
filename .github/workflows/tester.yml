@@ -11,9 +11,7 @@ jobs:
   milestone-closer:
 
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        repoList: [ 'eoeaaaservicegui', 'Helloworld']      
+  
     steps:
           
       - name: Close milestone
