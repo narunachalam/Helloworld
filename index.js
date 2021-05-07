@@ -38,12 +38,14 @@ try {
       let prInfo = ""
       pullRequests.data.forEach((pr) => {
         const location = pr.commit.url.search("commits/")
-        prInfo = prInfo + pr.commit.url.substr(location + "commits/".length, 7)+ ' '+ pr.commit.message
-        console.log('message', prInfo)
+        prInfo = prInfo.concat(' ', pr.commit.url.substr(location + "commits/".length, 7)+ ' '+ pr.commit.message)  
+         console.log('message', prInfo)
         
       })
       const payload = JSON.stringify(github.context.payload, undefined, 2)
       console.log(`The event payload: ${payload}`);      
+      core.info(`\n\n${prInfo}`)
+      core.setOutput("prInfo", prInfo);
       //core.setOutput("prInfo", prInfo);
       return prInfo
     } catch (e) {
@@ -53,7 +55,7 @@ try {
   }
 
   const prInfo  =  run()
-  core.setOutput("prInfo", prInfo);
+ // core.setOutput("prInfo", prInfo);
 } catch (error) {
   core.setFailed(error.message);
 }
