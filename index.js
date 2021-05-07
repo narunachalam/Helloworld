@@ -44,15 +44,16 @@ try {
       })
       const payload = JSON.stringify(github.context.payload, undefined, 2)
       console.log(`The event payload: ${payload}`);      
-      core.setOutput("prInfo", prInfo);
-
+      //core.setOutput("prInfo", prInfo);
+      return prInfo
     } catch (e) {
       console.log("Cannot find PR", `${owner}/${repo}#${prNumber}`, e.status, e.message)
       return null
     }
   }
 
-  run()
+  const prInfo  = await run()
+  core.setOutput("prInfo", prInfo);
 } catch (error) {
   core.setFailed(error.message);
 }
