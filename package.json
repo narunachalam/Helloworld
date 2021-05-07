@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "This action prints \"Hello World\" or \"Hello\" + the name of a person to greet to the log.",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "@octokit/rest": "^18.5.3",
+    "moment": "^2.29.1",
+    "yargs": "^17.0.1"
+  },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -17,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/narunachalam/Helloworld/issues"
   },
-  "homepage": "https://github.com/narunachalam/Helloworld#readme"
+  "homepage": "https://github.com/narunachalam/Helloworld#readme",
+  "engines": {
+    "node": ">=12.0.0"
+  }
 }
