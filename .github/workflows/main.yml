@@ -1,6 +1,7 @@
 name: test action
 
-on: [push]
+on: 
+  workflow-action:
 
 jobs:
   hello_world_job:
