@@ -52,7 +52,7 @@ try {
     }
   }
 
-  const prInfo  = await run()
+  const prInfo  =  run()
   core.setOutput("prInfo", prInfo);
 } catch (error) {
   core.setFailed(error.message);
