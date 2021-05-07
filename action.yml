@@ -1,13 +1,13 @@
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: 'Get the PR information'
+description: 'Get the PR information'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  prNumber:  
+    description: 'PR Number'
     required: true
-    default: 'World'
+
 outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  prInfo: # id of output
+    description: 'pr information'    
 runs:
   using: 'node12'
   main: 'index.js'
