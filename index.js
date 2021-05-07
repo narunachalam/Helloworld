@@ -29,7 +29,7 @@ try {
 
   const owner = "narunachalam"
   const repo = "Helloworld"
-  const prNumber = 1
+ 
 
   const run = async () => {
     try {
