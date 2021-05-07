@@ -14,7 +14,6 @@ try {
 
   const octokit = new Octokit({
     baseUrl: 'https://api.github.com',
-    auth: "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",
     log: {
       debug: () => { },
       info: () => { },
@@ -28,9 +27,9 @@ try {
     }
   })
 
-  const owner = "executive-office-of-education"
-  const repo = "EOEAAAService"
-  const prNumber = 189
+  const owner = "narunachalam"
+  const repo = "Helloworld"
+  const prNumber = 1
 
   const run = async () => {
     try {
