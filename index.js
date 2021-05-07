@@ -38,7 +38,9 @@ try {
 
       pullRequests.data.forEach((pr) => {
         const location = pr.commit.url.search("commits/")
-        console.log('message', pr.commit.url.substr(location + "commits/".length, 7), ' ', pr.commit.message)
+        const prInfo = pr.commit.url.substr(location + "commits/".length, 7)+ ' '+ pr.commit.message
+        console.log('message', prInfo)
+        core.setOutput("prInfo", prInfo);
       })
     } catch (e) {
       console.log("Cannot find PR", `${owner}/${repo}#${prNumber}`, e.status, e.message)
