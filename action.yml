@@ -4,7 +4,10 @@ inputs:
   prNumber:  
     description: 'PR Number'
     required: true
-
+  repository:
+    description: The owner and repository name, in the format <owner>/<repo>.
+    default: ${{ github.repository }}
+    required: false
 outputs:
   prInfo: # id of output
     description: 'pr information'    

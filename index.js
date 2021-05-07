@@ -2,6 +2,7 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 
 try {
+  const [owner, repo] = core.getInput("repository", { required: true }).split("/")
   // `prNumber` input defined in action metadata file
   const prNumber = core.getInput('prNumber');
   console.log(`Hello ${prNumber}!`);
@@ -26,8 +27,8 @@ try {
     }
   })
 
-  const owner = "narunachalam"
-  const repo = "Helloworld"
+//  const owner = "narunachalam"
+ // const repo = "Helloworld"
  
 
   const run = async () => {
