@@ -42,9 +42,10 @@ try {
         console.log('message', prInfo)
         
       })
-      core.setOutput("prInfo", prInfo);
       const payload = JSON.stringify(github.context.payload, undefined, 2)
-      console.log(`The event payload: ${payload}`);
+      console.log(`The event payload: ${payload}`);      
+      core.setOutput("prInfo", prInfo);
+
     } catch (e) {
       console.log("Cannot find PR", `${owner}/${repo}#${prNumber}`, e.status, e.message)
       return null
