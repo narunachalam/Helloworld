@@ -19,4 +19,4 @@ jobs:
           prNumber: 1
 
       - name: Get the pr
-        run: echo "The time was ${{ steps.hello.outputs.prInfo }}"
+        run: echo "The time was ${{ steps.Checkout.outputs.prInfo }}"
