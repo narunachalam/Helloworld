@@ -1,7 +1,7 @@
 name: test action
 
 on: 
-  workflow_action:
+   workflow_dispatch:
 
 jobs:
   hello_world_job:
