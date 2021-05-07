@@ -8,8 +8,7 @@ try {
   const time = (new Date()).toTimeString();
   
   // Get the JSON webhook payload for the event that triggered the workflow
-  const payload = JSON.stringify(github.context.payload, undefined, 2)
-  console.log(`The event payload: ${payload}`);
+
   const { Octokit } = require('@octokit/rest')
 
   const octokit = new Octokit({
@@ -36,12 +35,16 @@ try {
 
       const pullRequests = await octokit.pulls.listCommits({ owner: owner, repo: repo, pull_number: prNumber })
 
+      let prInfo = ""
       pullRequests.data.forEach((pr) => {
         const location = pr.commit.url.search("commits/")
-        const prInfo = pr.commit.url.substr(location + "commits/".length, 7)+ ' '+ pr.commit.message
+        prInfo = prInfo + pr.commit.url.substr(location + "commits/".length, 7)+ ' '+ pr.commit.message
         console.log('message', prInfo)
-        core.setOutput("prInfo", prInfo);
+        
       })
+      core.setOutput("prInfo", prInfo);
+      const payload = JSON.stringify(github.context.payload, undefined, 2)
+      console.log(`The event payload: ${payload}`);
     } catch (e) {
       console.log("Cannot find PR", `${owner}/${repo}#${prNumber}`, e.status, e.message)
       return null
