@@ -8,7 +8,6 @@ on:
         required: true  
       repository:
         description: 'repository'
-        default: ${{ github.repository }}
         required: true   
 
 jobs:
