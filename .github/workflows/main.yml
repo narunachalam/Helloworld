@@ -3,6 +3,9 @@ name: test action
 on: 
    workflow_dispatch:
     inputs:
+      prNumber: 
+        description: 'PR Number'
+        required: true  
       repository:
         description: 'repository'
         default: ${{ github.repository }}
@@ -21,7 +24,7 @@ jobs:
         uses: ./ # Uses an action in the root directory
         id: prAction
         with:
-          prNumber: 1
+          prNumber:  ${{github.event.inputs.prNumber}}
           repository: ${{github.event.inputs.repository}}
 
       - name: Get the pr
