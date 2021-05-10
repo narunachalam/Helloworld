@@ -25,6 +25,8 @@ jobs:
         with:
           prNumber:  ${{github.event.inputs.prNumber}}
           repository: ${{github.event.inputs.repository}}
+        env:
+          GITHUB_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}          
 
       - name: Get the pr
         run: echo "The time was ${{ steps.prAction.outputs.prInfo }}"
