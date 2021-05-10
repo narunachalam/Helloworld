@@ -7,6 +7,8 @@ try {
   const prNumber = core.getInput('prNumber');
   console.log(`Hello ${prNumber}!`);
   const time = (new Date()).toTimeString();
+  const token = core.getInput('github_token');
+  
   
   // Get the JSON webhook payload for the event that triggered the workflow
 
@@ -14,6 +16,7 @@ try {
 
   const octokit = new Octokit({
     baseUrl: 'https://api.github.com',
+    auth: token,
     log: {
       debug: () => { },
       info: () => { },
