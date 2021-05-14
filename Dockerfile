@@ -1,4 +1,4 @@
-FROM narunachalam/Helloworld:1.0.0
+FROM narunachalam/Helloworld:dev
 
 LABEL maintainer="Nirai Arunachalam <balu.nirai@gmail.com>"
 LABEL repository="https://github.com/narunachalam/Helloworld"
